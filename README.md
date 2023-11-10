@@ -19,35 +19,35 @@ This is a project that aims to be a simple clone of the core functionality of th
 
 Users need to sign up and log in to utilize the note-taking features of the website. Users can achieve this by using a Github account SSO or a simple email registration.
 
-<img src="/public/images/noshan-login.gif" width="35%" />
+<img src="/public/images/noshan-login.gif" width="75%" />
 
 Noshan allows users to create and edit notes. Entering "/" inside the editor reveals a popup with options for different headings, bullet points, etc.
 
-<img src="/public/images/noshan-editor.gif" width="35%" />
+<img src="/public/images/noshan-editor.gif" width="75%" />
 
 There are also options to add a cover image to the note and/or an icon (emoji).
 
-<img src="/public/images/noshan-cover-icon.gif" width="35%" />
+<img src="/public/images/noshan-cover-icon.gif" width="75%" />
 
 Once a note is deleted, it goes to the <mark> _Trash_</mark> section. Selecting one of the notes opens it in the editor and shows options to delete the note forever or to restore it.
 
-<img src="/public/images/noshan-trash.gif" width="35%" />
+<img src="/public/images/noshan-trash.gif" width="75%" />
 
 There is also a search functionality that lets users search through all the existing notes.
 
-<img src="/public/images/noshan-search.gif" width="35%" />
+<img src="/public/images/noshan-search.gif" width="75%" />
 
 Clicking on the <mark> _Settings_</mark> button reveals a popup with an option to switch the theme of the website.
 
-<img src="/public/images/noshan-theme.gif" width="35%" />
+<img src="/public/images/noshan-theme.gif" width="75%" />
 
 Each note can have any number of child notes, and this is supported recursively for every note.
 
-<img src="/public/images/noshan-recursive-pages.gif" width="35%" />
+<img src="/public/images/noshan-recursive-pages.gif" width="75%" />
 
 Users also have the ability to publish a note to the web. This note will appear as read-only.
 
-<img src="/public/images/noshan-publish.gif" width="35%" />
+<img src="/public/images/noshan-publish.gif" width="75%" />
 
 <br>
 <br>
