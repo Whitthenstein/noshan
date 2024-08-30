@@ -51,7 +51,7 @@ Users also have the ability to publish a note to the web. This note will appear 
 
 <br>
 <br>
-By doing this project, I had the opportunity to try new platforms like Edgestore and Convex, as well as practice other skills I've acquired in Typescript, React, Next, and TailwindCSS.
+In doing this project, I had the opportunity to try new platforms like Edgestore and Convex, as well as practice other skills I've acquired in Typescript, React, Next, and TailwindCSS.
 
 <!-- TODO:
     1. Describe my overall experience in a couple of sentences.

@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  ChevronsLeft,
-  MenuIcon,
-  Plus,
-  PlusCircle,
-  Search,
-  Settings,
-  Trash,
-} from "lucide-react";
+import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
@@ -17,11 +9,7 @@ import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 import { api } from "@/convex/_generated/api";
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-} from "@/components/ui/popover";
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-settings";
 
@@ -61,9 +49,7 @@ export const Navigation = () => {
     }
   }, [pathname, isMobile]);
 
-  const handleMouseDown = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault();
     event.stopPropagation();
 
@@ -82,10 +68,7 @@ export const Navigation = () => {
     if (sidebarRef.current && navbarRef.current) {
       sidebarRef.current.style.width = `${newWidth}px`;
       navbarRef.current.style.setProperty("left", `${newWidth}px`);
-      navbarRef.current.style.setProperty(
-        "width",
-        `calc(100% - ${newWidth}px)`
-      );
+      navbarRef.current.style.setProperty("width", `calc(100% - ${newWidth}px)`);
     }
   };
 
@@ -101,10 +84,7 @@ export const Navigation = () => {
       setIsResetting(true);
 
       sidebarRef.current.style.width = isMobile ? "100%" : "240px";
-      navbarRef.current.style.setProperty(
-        "width",
-        isMobile ? "0" : "calc(100% - 240px)"
-      );
+      navbarRef.current.style.setProperty("width", isMobile ? "0" : "calc(100% - 240px)");
       navbarRef.current.style.setProperty("left", isMobile ? "100%" : "240px");
       setTimeout(() => setIsResetting(false), 300);
     }
@@ -130,7 +110,7 @@ export const Navigation = () => {
     toast.promise(promise, {
       loading: "Creating a new note...",
       success: "New note created!",
-      error: "Failed to create a new note.",
+      error: "Failed to create a new note."
     });
   };
 
@@ -139,8 +119,8 @@ export const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-full bg-secondary overflow-y-auto relative flex w-60 flex-col z-[99999]",
-          isResetting && "transition-all ease-in-out duration-300",
+          "group/sidebar relative z-[99999] flex h-full w-60 flex-col overflow-y-auto bg-secondary",
+          isResetting && "transition-all duration-300 ease-in-out",
           isMobile && "w-0"
         )}
       >
@@ -148,7 +128,7 @@ export const Navigation = () => {
           onClick={collapse}
           role="button"
           className={cn(
-            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
+            "absolute right-2 top-3 h-6 w-6 rounded-sm text-muted-foreground opacity-0 transition hover:bg-neutral-300 group-hover/sidebar:opacity-100 dark:hover:bg-neutral-600",
             isMobile && "opacity-100"
           )}
         >
@@ -156,41 +136,18 @@ export const Navigation = () => {
         </div>
         <div>
           <UserItem />
-          <Item
-            label="Search"
-            icon={Search}
-            isSearch
-            onClick={search.onOpen}
-          />
-          <Item
-            label="Settings"
-            icon={Settings}
-            onClick={settings.onOpen}
-          />
-          <Item
-            onClick={handleCreate}
-            label="New page"
-            icon={PlusCircle}
-          />
+          <Item label="Search" icon={Search} isSearch onClick={search.onOpen} />
+          <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
+          <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
         </div>
         <div className="mt-4">
           <DocumentList />
-          <Item
-            onClick={handleCreate}
-            icon={Plus}
-            label="Add a page"
-          />
+          <Item onClick={handleCreate} icon={Plus} label="Add a page" />
           <Popover>
-            <PopoverTrigger className="w-full mt-4">
-              <Item
-                label="Trash"
-                icon={Trash}
-              />
+            <PopoverTrigger className="mt-4 w-full">
+              <Item label="Trash" icon={Trash} />
             </PopoverTrigger>
-            <PopoverContent
-              className="p-0 w-72"
-              side={isMobile ? "bottom" : "right"}
-            >
+            <PopoverContent className="w-72 p-0" side={isMobile ? "bottom" : "right"}>
               <TrashBox />
             </PopoverContent>
           </Popover>
@@ -198,24 +155,21 @@ export const Navigation = () => {
         <div
           onMouseDown={handleMouseDown}
           onClick={resetWidth}
-          className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
+          className="absolute right-0 top-0 h-full w-1 cursor-ew-resize bg-primary/10 opacity-0 transition group-hover/sidebar:opacity-100"
         />
       </aside>
       <div
         ref={navbarRef}
         className={cn(
-          "absolute top-0 z-[99999] left-60 w-[calc(100%-240px)]",
-          isResetting && "transition-all ease-in-out duration-300",
+          "absolute left-60 top-0 z-[99999] w-[calc(100%-240px)]",
+          isResetting && "transition-all duration-300 ease-in-out",
           isMobile && "left-0 w-full"
         )}
       >
         {!!params.documentId ? (
-          <Navbar
-            isCollapsed={isCollapsed}
-            onResetWidth={resetWidth}
-          />
+          <Navbar isCollapsed={isCollapsed} onResetWidth={resetWidth} />
         ) : (
-          <nav className="bg-transparent px-3 py-2 w-full">
+          <nav className="w-full bg-transparent px-3 py-2">
             {isCollapsed && (
               <MenuIcon
                 onClick={resetWidth}

@@ -12,7 +12,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList,
+  CommandList
 } from "@/components/ui/command";
 import { useSearch } from "@/hooks/use-search";
 import { api } from "@/convex/_generated/api";
@@ -56,10 +56,7 @@ export const SearchCommand = () => {
   }
 
   return (
-    <CommandDialog
-      open={isOpen}
-      onOpenChange={onClose}
-    >
+    <CommandDialog open={isOpen} onOpenChange={onClose}>
       <CommandInput placeholder={`Search ${userName}'s Noshan...`} />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>

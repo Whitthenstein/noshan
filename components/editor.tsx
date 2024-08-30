@@ -20,7 +20,7 @@ const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
 
   const handleUpload = async (file: File) => {
     const response = await edgestore.publicFiles.upload({
-      file,
+      file
     });
 
     return response.url;
@@ -28,21 +28,16 @@ const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
 
   const editor: BlockNoteEditor = useBlockNote({
     editable,
-    initialContent: initialContent
-      ? (JSON.parse(initialContent) as PartialBlock[])
-      : undefined,
+    initialContent: initialContent ? (JSON.parse(initialContent) as PartialBlock[]) : undefined,
     onEditorContentChange: (editor) => {
       onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
     },
-    uploadFile: handleUpload,
+    uploadFile: handleUpload
   });
 
   return (
     <div>
-      <BlockNoteView
-        editor={editor}
-        theme={resolvedTheme === "dark" ? "dark" : "light"}
-      />
+      <BlockNoteView editor={editor} theme={resolvedTheme === "dark" ? "dark" : "light"} />
     </div>
   );
 };

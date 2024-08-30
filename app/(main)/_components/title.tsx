@@ -37,7 +37,7 @@ export const Title = ({ initialData }: TitleProps) => {
     setTitle(event.target.value);
     update({
       id: initialData._id,
-      title: event.target.value || "Untitled",
+      title: event.target.value || "Untitled"
     });
   };
 
@@ -61,12 +61,7 @@ export const Title = ({ initialData }: TitleProps) => {
           className="h-7 px-2 focus-visible:ring-transparent"
         />
       ) : (
-        <Button
-          onClick={enableInput}
-          variant="ghost"
-          size="sm"
-          className="font-normal h-auto p-1"
-        >
+        <Button onClick={enableInput} variant="ghost" size="sm" className="h-auto p-1 font-normal">
           <span className="truncate">{initialData?.title}</span>
         </Button>
       )}

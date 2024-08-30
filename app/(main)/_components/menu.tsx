@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
+  DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu";
 import { api } from "@/convex/_generated/api";
 import { Button } from "@/components/ui/button";
@@ -38,7 +38,7 @@ export const Menu = ({ document }: MenuProps) => {
     toast.promise(promise, {
       loading: "Moving to trash...",
       success: "Note moved to trash!",
-      error: "Failed to archive note.",
+      error: "Failed to archive note."
     });
 
     router.push("/documents");
@@ -50,42 +50,32 @@ export const Menu = ({ document }: MenuProps) => {
     toast.promise(promise, {
       loading: "Restoring note...",
       success: "Note restored!",
-      error: "Failed to restore note.",
+      error: "Failed to restore note."
     });
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          size="sm"
-          variant="ghost"
-        >
+        <Button size="sm" variant="ghost">
           <MoreHorizontal className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent
-        className="w-60"
-        align="end"
-        alignOffset={8}
-        forceMount
-      >
+      <DropdownMenuContent className="w-60" align="end" alignOffset={8} forceMount>
         {document.isArchived ? (
           <DropdownMenuItem onClick={onRestore}>
-            <Undo className="h-4 w-4 mr-2" />
+            <Undo className="mr-2 h-4 w-4" />
             Restore
           </DropdownMenuItem>
         ) : (
           <DropdownMenuItem onClick={onArchive}>
-            <Trash className="h-4 w-4 mr-2" />
+            <Trash className="mr-2 h-4 w-4" />
             Delete
           </DropdownMenuItem>
         )}
 
         <DropdownMenuSeparator />
-        <div className="text-xs text-muted-foreground p-2">
-          Last edited by: {userName}
-        </div>
+        <div className="p-2 text-xs text-muted-foreground">Last edited by: {userName}</div>
       </DropdownMenuContent>
     </DropdownMenu>
   );

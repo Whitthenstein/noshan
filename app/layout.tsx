@@ -17,27 +17,20 @@ export const metadata: Metadata = {
       {
         media: "(prefers-color-scheme: light)",
         url: "/noshan_logo.png",
-        href: "/noshan_logo.png",
+        href: "/noshan_logo.png"
       },
       {
         media: "(prefers-color-scheme: dark)",
         url: "/noshan_logo_dark.png",
-        href: "/noshan_logo_dark.png",
-      },
-    ],
-  },
+        href: "/noshan_logo_dark.png"
+      }
+    ]
+  }
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-    >
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ConvexClientProvider>
           <EdgeStoreProvider>

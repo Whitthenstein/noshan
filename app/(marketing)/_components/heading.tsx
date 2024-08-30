@@ -13,16 +13,16 @@ export const Heading = () => {
 
   return (
     <div className="max-w-3xl space-y-4">
-      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
+      <h1 className="text-3xl font-bold sm:text-5xl md:text-6xl">
         Your Ideas, Documents, & Plans. Unified. Welcome to{" "}
         <span className="underline">ノシャン (Noshan)</span>
       </h1>
-      <h3 className="text-base sm:text-xl md:text-2xl font-medium">
+      <h3 className="text-base font-medium sm:text-xl md:text-2xl">
         Noshan is the connected workspace where <br />
         better, faster work happens.
       </h3>
       {isLoading && (
-        <div className="w-full flex items-center justify-center">
+        <div className="flex w-full items-center justify-center">
           <Spinner size="lg" />
         </div>
       )}
@@ -30,7 +30,7 @@ export const Heading = () => {
         <Button asChild>
           <Link href="/documents">
             Enter Noshan
-            <ArrowRight className="h-4 w-4 ml-2" />
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
       )}
@@ -38,7 +38,7 @@ export const Heading = () => {
         <SignInButton mode="modal">
           <Button>
             Get Noshan free
-            <ArrowRight className="h-4 w-4 ml-2" />
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </SignInButton>
       )}

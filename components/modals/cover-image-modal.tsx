@@ -34,13 +34,13 @@ export const CoverImageModal = () => {
       const res = await edgestore.publicFiles.upload({
         file,
         options: {
-          replaceTargetUrl: coverImage.url,
-        },
+          replaceTargetUrl: coverImage.url
+        }
       });
 
       await update({
         id: params.documentId as Id<"documents">,
-        coverImage: res.url,
+        coverImage: res.url
       });
 
       onClose();
@@ -48,10 +48,7 @@ export const CoverImageModal = () => {
   };
 
   return (
-    <Dialog
-      open={coverImage.isOpen}
-      onOpenChange={coverImage.onClose}
-    >
+    <Dialog open={coverImage.isOpen} onOpenChange={coverImage.onClose}>
       <DialogContent>
         <DialogHeader>
           <h2 className="text-center text-lg font-semibold">Cover Image</h2>
